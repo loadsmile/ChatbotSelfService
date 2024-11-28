@@ -4,7 +4,12 @@ const axios = require('axios');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://chatbot-self-service.vercel.app'],
+  methods: ['POST'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.post('/api/getAnswer', async (req, res) => {
